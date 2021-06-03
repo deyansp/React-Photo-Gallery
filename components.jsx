@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Header = styled("header")({
   padding: 16,
-  backgroundColor: "#f5f5f5"
+  backgroundColor: "#f1f1f1"
 });
 
 // images grid

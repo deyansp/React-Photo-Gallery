@@ -25,7 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <Header>
-          <h1>Freshly Fetched Photos</h1>
+          <h1>📷 Freshly Fetched Photos 📷</h1>
         </Header>
         <ImgTiles>
           {this.state.images.map((image) => {
@@ -43,8 +43,9 @@ class App extends React.Component {
             );
           })}
         </ImgTiles>
-        // if the current image is clicked, add a dark background to the full
-        screen view
+        
+        // if the current image is clicked, add a background to the full
+        // screen view
         {this.state.currentPhotoId !== null && <ImgFrame />}
       </div>
     );
