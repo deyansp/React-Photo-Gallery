@@ -24,15 +24,30 @@ const ThumbnailStyles = {
   display: "block",
   width: "100%",
   objectFit: "cover"
-}
+};
 
 const FullScreenStyles = {
-    position: "fixed",
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    height: "80vh",
-    margin: "auto"
-}
-export const Img = styled("img")(props => props.isActive ? FullScreenStyles : ThumbnailStyles);
+  position: "fixed",
+  top: 0,
+  right: 0,
+  left: 0,
+  bottom: 0,
+  width: "80vw",
+  margin: "auto",
+  zIndex: 10,
+  cursor: "zoom-out"
+};
+export const Img = styled("img")((props) =>
+  props.isActive ? FullScreenStyles : ThumbnailStyles
+);
+
+export const ImgFrame = styled("div")({
+  position: "fixed",
+  top: 0,
+  right: 0,
+  left: 0,
+  bottom: 0,
+  backgroundColor: "hsla(0, 0%, 100%, 0.96)",
+  zIndex: 5,
+  cursor: "zoom-in"
+});

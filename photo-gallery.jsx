@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Header, ImgTiles, Img } from "./components";
+import { Header, ImgTiles, Img, ImgFrame } from "./components";
 
 import "./styles.css";
 
@@ -43,6 +43,9 @@ class App extends React.Component {
             );
           })}
         </ImgTiles>
+        // if the current image is clicked, add a dark background to the full
+        screen view
+        {this.state.currentPhotoId !== null && <ImgFrame />}
       </div>
     );
   }
