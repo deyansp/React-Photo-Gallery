@@ -6,7 +6,8 @@ import "./styles.css";
 
 class App extends React.Component {
   state = {
-    images: []
+    images: [],
+    currentPhotoId: null
   };
 
   // get data when the components mounts to the screen
@@ -31,6 +32,9 @@ class App extends React.Component {
             <Img
               key={image.id}
               src={`https://picsum.photos/1000/1000?image=${image.id}`}
+              isActive={this.state.currentPhotoId === image.id}
+              // update state with the currently clicked image's ID
+              onClick={() => this.setState({ currentPhotoId: image.id })}
             />
           ))}
         </ImgTiles>
