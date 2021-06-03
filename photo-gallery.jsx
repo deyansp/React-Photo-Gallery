@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Header, ImgTiles, Img } from "./components";
 
-// stateful component
+import "./styles.css";
+
 class App extends React.Component {
   state = {
     images: []
@@ -21,17 +23,20 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Freshly Fetched Photos</h1>
-        {this.state.images.map((image) => (
-          <img
-            key={image.id}
-            src={`https://picsum.photos/200/300?image=${image.id}`}
-          />
-        ))}
+        <Header>
+          <h1>Freshly Fetched Photos</h1>
+        </Header>
+        <ImgTiles>
+          {this.state.images.map((image) => (
+            <Img
+              key={image.id}
+              src={`https://picsum.photos/1000/1000?image=${image.id}`}
+            />
+          ))}
+        </ImgTiles>
       </div>
     );
   }
 }
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
