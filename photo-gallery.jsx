@@ -28,15 +28,20 @@ class App extends React.Component {
           <h1>Freshly Fetched Photos</h1>
         </Header>
         <ImgTiles>
-          {this.state.images.map((image) => (
-            <Img
-              key={image.id}
-              src={`https://picsum.photos/1000/1000?image=${image.id}`}
-              isActive={this.state.currentPhotoId === image.id}
-              // update state with the currently clicked image's ID
-              onClick={() => this.setState({ currentPhotoId: image.id })}
-            />
-          ))}
+          {this.state.images.map((image) => {
+            const isActive = this.state.currentPhotoId === image.id;
+            return (
+              <Img
+                key={image.id}
+                src={`https://picsum.photos/1000/1000?image=${image.id}`}
+                isActive={isActive}
+                // update state with the currently clicked image's ID or set to null to close full screen view
+                onClick={() =>
+                  this.setState({ currentPhotoId: isActive ? null : image.id })
+                }
+              />
+            );
+          })}
         </ImgTiles>
       </div>
     );
