@@ -17,11 +17,22 @@ export const ImgTiles = styled("div")((props) => ({
 
 ImgTiles.defaultProps = {
   spacing: 16,
-  minCellWidth: 240
+  minCellWidth: 120
 };
 
-export const Img = styled("img")({
+const ThumbnailStyles = {
   display: "block",
   width: "100%",
   objectFit: "cover"
-});
+}
+
+const FullScreenStyles = {
+    position: "fixed",
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    height: "80vh",
+    margin: "auto"
+}
+export const Img = styled("img")(props => props.isActive ? FullScreenStyles : ThumbnailStyles);
