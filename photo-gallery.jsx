@@ -13,11 +13,19 @@ class App extends React.Component {
   // get data when the components mounts to the screen
   componentDidMount() {
     fetch("https://picsum.photos/v2/list")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok)
+          throw new Error('Server response error: ' + response.status.toString());
+        else
+          return response.json();
+      })
       .then((data) => {
         this.setState({
           images: data.slice(0, 30)
         });
+      })
+      .catch((error) => {
+        alert("A Network Error has occurred. Please try again.");
       });
   }
 
